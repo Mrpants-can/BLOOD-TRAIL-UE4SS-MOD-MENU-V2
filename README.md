@@ -1,2 +1,171 @@
-# BLOOD-TRAIL-UE4SS-MOD-MENU-V2
-Blood Trail Mod Menu V2 A VR mod menu that floats directly in your headset with laser-pointer control and a synced desktop app.  Key Features  Combat Movement Utility Controls  B: Toggle Menu  Trigger: Select  A: Calibrate Laser Aim  Y / X: Fly / Noclip  Right Stick: Crouch Installation 
+====================================================================
+  BLOOD TRAIL UE4SS MOD MENU  -  V2
+  A VR mod menu for Blood Trail (Steam), with a desktop control panel
+====================================================================
+
+WHAT YOU GET
+------------
+  * An in-headset menu you point at with your controller laser.
+  * A desktop app that controls the same thing from your monitor.
+  * 10 tabs, 129 settings: god mode, infinite ammo, strength fists,
+    grab & throw bodies, flying, noclip, virtual crouch and jump,
+    enemy ESP, full bright, an enemy spawner and a map teleporter.
+
+Both talk to the game at once. Change something in either and the
+other follows.
+
+
+====================================================================
+  SETUP  -  TWO STEPS
+====================================================================
+
+You need UE4SS first. It is the mod loader; this menu is a mod that
+runs inside it. Without it nothing happens.
+
+--------------------------------------------------------------------
+STEP 1  -  INSTALL UE4SS
+--------------------------------------------------------------------
+
+  1. Download it here:
+
+       https://github.com/UE4SS-RE/RE-UE4SS/releases
+
+     Take the newest normal release zip (the file named like
+     UE4SS_v3.0.1.zip). You do NOT need the "zDEV" debug build.
+
+  2. Find your game folder. In Steam, right-click Blood Trail ->
+     Manage -> Browse local files, then open:
+
+       BTVR\Binaries\Win64
+
+     You should see BTVR-Win64-Shipping.exe sitting there.
+
+  3. Open the zip and copy these into that Win64 folder:
+
+       dwmapi.dll
+       UE4SS.dll
+       UE4SS-settings.ini
+       Mods\            (the whole folder)
+
+  4. IMPORTANT - tell UE4SS which engine this game uses.
+     Open UE4SS-settings.ini in Notepad and make sure it contains:
+
+       [EngineVersionOverride]
+       MajorVersion = 4
+       MinorVersion = 27
+
+     Blood Trail is Unreal Engine 4.27. If this is missing or wrong,
+     UE4SS loads but finds nothing and no mod will work. The exe is
+     named "BloodTrail_419ai" which makes people think 4.19 - it is
+     not, it is 4.27.
+
+--------------------------------------------------------------------
+STEP 2  -  INSTALL THE MOD MENU
+--------------------------------------------------------------------
+
+  Close the game, then double-click:
+
+       INSTALL - Double-Click Me.bat
+
+  It finds Blood Trail by itself (any drive, any Steam library) and
+  copies everything into place.
+
+  Prefer to do it by hand? Copy the ModMenu folder next to this file
+  into:
+
+       Blood Trail\BTVR\Binaries\Win64\Mods\
+
+  so you end up with:
+
+       ...\Mods\ModMenu\Scripts\main.lua
+
+  Then make sure Mods\mods.txt contains this line:
+
+       ModMenu : 1
+
+  Start the game. That is it.
+
+
+====================================================================
+  CONTROLS  -  IN THE HEADSET
+====================================================================
+
+  B button ............ open / close the menu
+  Point + trigger ..... click a row or a tab
+  A button ............ calibrate the laser (see below)
+  Y button ............ flying on / off
+  X button ............ noclip on / off
+  Right stick click ... crouch on / off
+
+  The menu sits in front of you and follows where you look. Point at
+  a row and it highlights; pull the trigger to toggle it. Tabs along
+  the top highlight the same way - >COMBAT< is the one you are about
+  to click.
+
+  On a slider, click the LEFT half to go down and the RIGHT half to
+  go up.
+
+IF THE LASER DOES NOT LINE UP
+-----------------------------
+  Open the menu, point at the MIDDLE of the panel, and press A.
+  That solves the aim in one press and remembers it, including
+  after you restart the game.
+
+  If you press A while pointing somewhere else it refuses and says
+  so, rather than saving a bad aim - just point at the panel and
+  press again.
+
+
+====================================================================
+  CONTROLS  -  ON THE DESKTOP
+====================================================================
+
+  Run:  Blood Trail Mod Menu.exe
+
+  Same settings, on your monitor, while the headset is on. Handy for
+  the spawner and the map list. Everything you change in VR shows up
+  here and the other way round.
+
+  Optional extras:
+    Play Blood Trail (with Mod Menu).bat   starts both together
+    Auto-Open With The Game.bat            opens the app when the
+                                           game starts
+    Auto-Start With Windows.bat            starts the watcher at login
+
+
+====================================================================
+  TROUBLESHOOTING
+====================================================================
+
+Nothing happens at all
+  UE4SS is not loading. Check dwmapi.dll is in Binaries\Win64, and
+  that UE4SS-settings.ini has the 4.27 engine override from Step 1.
+  A file called UE4SS.log appears in that folder when it works.
+
+The menu never appears
+  Check Mods\mods.txt has "ModMenu : 1" and that
+  Mods\ModMenu\enabled.txt exists.
+
+The game crashes when a round starts
+  Turn SAFE MODE on (PLAYER tab). It holds off the features that
+  touch enemies, which is where round crashes come from.
+
+A combat toggle will not stay on
+  It will show [~] instead of [ ] - that means SAFE MODE is holding
+  it off. Clicking it turns SAFE MODE off and enables the feature.
+
+Sound is quiet or missing
+  That is usually not the mod. The game sends audio to whatever
+  device the Oculus app is set to. Set the Oculus/Meta app's audio
+  output to your headset. There is also a FIX AUDIO button on the
+  SETTINGS tab that restores the game's own volume levels.
+
+The desktop app shows the wrong values
+  Close any older copy of the app first - two copies fight over the
+  same file.
+
+
+====================================================================
+  Made for Blood Trail on Steam.  Single player.  Use it for fun.
+====================================================================
+
