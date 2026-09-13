@@ -1,10 +1,10 @@
-====================================================================
+
   BLOOD TRAIL UE4SS MOD MENU  -  V2
   A VR mod menu for Blood Trail (Steam), with a desktop control panel
-====================================================================
+
 
 WHAT YOU GET
-------------
+
   * An in-headset menu you point at with your controller laser.
   * A desktop app that controls the same thing from your monitor.
   * 10 tabs, 129 settings: god mode, infinite ammo, strength fists,
@@ -15,16 +15,16 @@ Both talk to the game at once. Change something in either and the
 other follows.
 
 
-====================================================================
+
   SETUP  -  TWO STEPS
-====================================================================
+
 
 You need UE4SS first. It is the mod loader; this menu is a mod that
 runs inside it. Without it nothing happens.
 
---------------------------------------------------------------------
+
 STEP 1  -  INSTALL UE4SS
---------------------------------------------------------------------
+
 
   1. Download it here:
 
@@ -59,9 +59,9 @@ STEP 1  -  INSTALL UE4SS
      named "BloodTrail_419ai" which makes people think 4.19 - it is
      not, it is 4.27.
 
---------------------------------------------------------------------
+
 STEP 2  -  INSTALL THE MOD MENU
---------------------------------------------------------------------
+
 
   Close the game, then double-click:
 
@@ -86,9 +86,9 @@ STEP 2  -  INSTALL THE MOD MENU
   Start the game. That is it.
 
 
-====================================================================
+
   CONTROLS  -  IN THE HEADSET
-====================================================================
+
 
   B button ............ open / close the menu
   Point + trigger ..... click a row or a tab
@@ -106,7 +106,7 @@ STEP 2  -  INSTALL THE MOD MENU
   go up.
 
 IF THE LASER DOES NOT LINE UP
------------------------------
+
   Open the menu, point at the MIDDLE of the panel, and press A.
   That solves the aim in one press and remembers it, including
   after you restart the game.
@@ -116,9 +116,9 @@ IF THE LASER DOES NOT LINE UP
   press again.
 
 
-====================================================================
+
   CONTROLS  -  ON THE DESKTOP
-====================================================================
+
 
   Run:  Blood Trail Mod Menu.exe
 
@@ -133,9 +133,8 @@ IF THE LASER DOES NOT LINE UP
     Auto-Start With Windows.bat            starts the watcher at login
 
 
-====================================================================
+
   TROUBLESHOOTING
-====================================================================
 
 Nothing happens at all
   UE4SS is not loading. Check dwmapi.dll is in Binaries\Win64, and
@@ -165,7 +164,7 @@ The desktop app shows the wrong values
   same file.
 
 
-====================================================================
+
   Made for Blood Trail on Steam.  Single player.  Use it for fun.
-====================================================================
+
 
