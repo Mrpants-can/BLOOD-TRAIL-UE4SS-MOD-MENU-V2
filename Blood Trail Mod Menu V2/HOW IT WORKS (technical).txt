@@ -1,0 +1,113 @@
+====================================================================
+  BLOOD TRAIL MOD MENU  -  HOW IT WORKS
+  For the curious, and for anyone wanting to modify it
+====================================================================
+
+THE SHAPE OF IT
+---------------
+Blood Trail is Unreal Engine 4.27. UE4SS injects into the game and
+runs Lua. This mod is that Lua, plus a Python desktop app that talks
+to it through two text files.
+
+    Mods\ModMenu\Scripts\
+      main.lua          entry point, keybinds, the 10 Hz loop
+      player_mods.lua   every cheat; all pawn reads/writes
+      gui.lua           the in-headset menu and the laser pointer
+      spawner_mods.lua  enemy/prop spawning
+      ipc.lua           the bridge to the desktop app
+      pawn_schema.lua   generated: what each pawn class really has
+
+    Mods\ModMenu\
+      control.txt       app -> mod   (settings + one-shot actions)
+      status.txt        mod -> app   (health, pawn, live state)
+
+
+THE MENU IS TEXT
+----------------
+There is no UI framework here. The panel is drawn into a
+UTextRenderComponent the player pawn already owns (CameraText), as
+monospaced text with box characters. Everything - tabs, checkboxes,
+slider bars - is built out of characters.
+
+That is not a stylistic choice. Spawning our own actor for a panel,
+or re-parenting the existing one, crashed the game every time it was
+tried. Driving a component the game already created and positioned is
+the one approach that survives.
+
+Consequences worth knowing:
+  * The panel cannot be moved. Its height is adjusted by padding the
+    text with blank lines instead - centre-anchored text shifts up by
+    half a line per line added.
+  * It cannot have a background. One text component draws one colour.
+  * Its distance is faked with font size: smaller text subtends a
+    smaller angle, which is what "further away" looks like.
+
+
+POINTING
+--------
+The laser is the game's own. Blood Trail gives each hand a
+BP_Teleport_Controller carrying a UWidgetInteractionComponent - the
+component Unreal uses to point at UI - and the mod reads its world
+transform for both the ray's origin and its direction. Nothing is
+guessed.
+
+If that is ever unavailable it falls back, in order, to a hand-rig
+aim socket, then a saved calibration, then the raw controller pose.
+Pressing A solves a correction that applies to whichever source is in
+use, and saves it to pointercal.txt so it survives a restart.
+
+A hit is a ray/plane intersection against the text panel. The line
+height comes from GetTextWorldSize(), so it is measured rather than
+assumed, and the tab under the cursor is found by mapping the hit to
+a character column - tab names differ in width, so an even split
+would send clicks to the wrong tab.
+
+
+THE TWO RULES THAT MATTER MOST
+------------------------------
+Everything painful in this project came from breaking one of these.
+
+1. READ ONLY WHAT THE CLASS ACTUALLY HAS.
+   Asking UE4SS for a property a class does not have dereferences a
+   null inside UE4SS.dll - an access violation that pcall CANNOT
+   catch. pawn_schema.lua is generated from the game's own header
+   dump and every read goes through a guard that checks it first.
+
+   This matters because the game ships TWO player pawns with
+   different property names for the same thing.
+
+2. ENGINE WORK BELONGS ON THE GAME THREAD.
+   The mod's loop runs on UE4SS's async thread. Reading is fine.
+   Anything that changes physics, collision or render state has to go
+   through ExecuteInGameThread, or it races the engine and takes the
+   game down - usually later, somewhere unrelated.
+
+   Collision resizes with bUpdateOverlaps, material swaps, visibility
+   changes and the laser beam are all wrapped for this reason.
+
+A third, learned the hard way: a diagnostic that walks engine objects
+must never live in the per-tick path. It does nothing at the menu and
+kills the game the moment a level loads.
+
+
+THE DESKTOP BRIDGE
+------------------
+control.txt is rewritten several times a second whether or not
+anything changed, so the mod applies a value only when it CHANGES.
+Otherwise the file would be the only thing able to set anything, and
+a toggle flipped in VR would be stamped back a fraction of a second
+later. The app in turn echoes the mod's live state, so its checkboxes
+follow what you did in the headset.
+
+One-shot actions (spawn, heal, teleport, calibrate) are guarded by a
+sequence number so the same action can be sent twice in a row.
+
+
+SAFE MODE
+---------
+Round-end crashes were chased through several real causes and got
+much rarer, but were never provably eliminated. SAFE MODE holds off
+the features that touch enemies, which is where those crashes come
+from. Rows it is holding down show [~] rather than [ ]; clicking one
+releases SAFE MODE and enables the feature, so it never silently
+fights you.
