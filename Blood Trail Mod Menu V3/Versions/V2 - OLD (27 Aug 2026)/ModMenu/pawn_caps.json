@@ -1,0 +1,39 @@
+{
+ "GodMode": [
+  "Wendigo",
+  "VRChar"
+ ],
+ "InfiniteBulletTime": [
+  "Wendigo",
+  "VRChar"
+ ],
+ "InfiniteCourage": [
+  "VRChar"
+ ],
+ "InstantCrackRegen": [
+  "Wendigo",
+  "VRChar"
+ ],
+ "InfiniteMana": [
+  "VRChar"
+ ],
+ "InfiniteArrows": [
+  "VRChar"
+ ],
+ "StopEnemySpawns": [
+  "VRChar"
+ ],
+ "GoreForever": [
+  "Wendigo",
+  "VRChar"
+ ],
+ "SuperSpeed": [
+  "Wendigo"
+ ],
+ "HighJump": [
+  "Wendigo"
+ ],
+ "TeleportBoost": [
+  "VRChar"
+ ]
+}

@@ -1,0 +1,35 @@
+-- GENERATED FILE - do not hand-edit.
+-- Every .umap in BTVR-WindowsNoEditor.pak, read from the pak index.
+-- Loading one travels there with: open <path>
+
+return {
+  { name = "Raid", items = {
+    { "Raid lvl1", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl1" },
+    { "Raid lvl2", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl2" },
+    { "Raid lvl3", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl3" },
+    { "Raid lvl4", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl4" },
+    { "Raid lvl5", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl5" },
+    { "Raid lvl6", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl6" },
+    { "Raid lvl7", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl7" },
+    { "Raid lvl8", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl8" },
+    { "Raid lvl9", "/Game/Maps/Raid/Levels/V3/Map_Raid_lvl9" },
+  } },
+  { name = "Arena", items = {
+    { "Arena Jumper", "/Game/Maps/Arena/Map_Arena_Jumper" },
+    { "CompoundArena", "/Game/Maps/Arena/Map_CompoundArena" },
+    { "Homewrecker Arena", "/Game/Maps/Arena/Map_Homewrecker_Arena" },
+    { "SlumArena", "/Game/Maps/Arena/Map_SlumArena" },
+  } },
+  { name = "Sandbox", items = {
+    { "Doppleganger", "/Game/Maps/Sandbox/Map_Doppleganger" },
+    { "FuturisticSandbox", "/Game/Maps/Sandbox/Map_FuturisticSandbox" },
+    { "Fy World", "/Game/Maps/Sandbox/Map_Fy_World" },
+    { "Sandbox", "/Game/Maps/Sandbox/Map_Sandbox" },
+    { "Sandbox Nu OPT", "/Game/Maps/Sandbox/Map_Sandbox_Nu_OPT" },
+  } },
+  { name = "Beta", items = {
+    { "Beta Apartment", "/Game/Maps/Beta/Map_Beta_Apartment" },
+    { "Beta Basement", "/Game/Maps/Beta/Map_Beta_Basement" },
+    { "Beta WoodsArena", "/Game/Maps/Beta/Map_Beta_WoodsArena" },
+  } },
+}

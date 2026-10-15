@@ -1,0 +1,2 @@
+The first release, from August. 10 tabs. Simpler - but none of the V3
+features, and none of its crash fixes.
