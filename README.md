@@ -1,5 +1,5 @@
 
-  BLOOD TRAIL UE4SS MOD MENU  -  V2
+  BLOOD TRAIL UE4SS MOD MENU
   A VR mod menu for Blood Trail (Steam), with a desktop control panel
 
 
