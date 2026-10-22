@@ -1,7 +1,7 @@
-====================================================================
+
   BLOOD TRAIL MOD MENU  -  V3                     15 October 2026
   A VR mod menu for Blood Trail (Steam), with a desktop control panel
-====================================================================
+
 
   To install it ......... double-click  INSTALL - Double-Click Me.bat
   To use it ............. press B in the headset
