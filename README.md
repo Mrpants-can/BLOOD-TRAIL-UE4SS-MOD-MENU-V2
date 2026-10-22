@@ -1,170 +1,173 @@
-
-  BLOOD TRAIL UE4SS MOD MENU
+====================================================================
+  BLOOD TRAIL MOD MENU  -  V3                     15 October 2026
   A VR mod menu for Blood Trail (Steam), with a desktop control panel
-
-
-WHAT YOU GET
-
-  * An in-headset menu you point at with your controller laser.
-  * A desktop app that controls the same thing from your monitor.
-  * 10 tabs, 129 settings: god mode, infinite ammo, strength fists,
-    grab & throw bodies, flying, noclip, virtual crouch and jump,
-    enemy ESP, full bright, an enemy spawner and a map teleporter.
-
-Both talk to the game at once. Change something in either and the
-other follows.
-
-
-
-  SETUP  -  TWO STEPS
-
-
-You need UE4SS first. It is the mod loader; this menu is a mod that
-runs inside it. Without it nothing happens.
-
-
-STEP 1  -  INSTALL UE4SS
-
-
-  1. Download it here:
-
-       https://github.com/UE4SS-RE/RE-UE4SS/releases
-
-     Take the newest normal release zip (the file named like
-     UE4SS_v3.0.1.zip). You do NOT need the "zDEV" debug build.
-
-  2. Find your game folder. In Steam, right-click Blood Trail ->
-     Manage -> Browse local files, then open:
-
-       BTVR\Binaries\Win64
-
-     You should see BTVR-Win64-Shipping.exe sitting there.
-
-  3. Open the zip and copy these into that Win64 folder:
-
-       dwmapi.dll
-       UE4SS.dll
-       UE4SS-settings.ini
-       Mods\            (the whole folder)
-
-  4. IMPORTANT - tell UE4SS which engine this game uses.
-     Open UE4SS-settings.ini in Notepad and make sure it contains:
-
-       [EngineVersionOverride]
-       MajorVersion = 4
-       MinorVersion = 27
-
-     Blood Trail is Unreal Engine 4.27. If this is missing or wrong,
-     UE4SS loads but finds nothing and no mod will work. The exe is
-     named "BloodTrail_419ai" which makes people think 4.19 - it is
-     not, it is 4.27.
-
-
-STEP 2  -  INSTALL THE MOD MENU
-
-
-  Close the game, then double-click:
-
-       INSTALL - Double-Click Me.bat
-
-  It finds Blood Trail by itself (any drive, any Steam library) and
-  copies everything into place.
-
-  Prefer to do it by hand? Copy the ModMenu folder next to this file
-  into:
-
-       Blood Trail\BTVR\Binaries\Win64\Mods\
-
-  so you end up with:
-
-       ...\Mods\ModMenu\Scripts\main.lua
-
-  Then make sure Mods\mods.txt contains this line:
-
-       ModMenu : 1
-
-  Start the game. That is it.
-
-
-
-  CONTROLS  -  IN THE HEADSET
-
-
-  B button ............ open / close the menu
-  Point + trigger ..... click a row or a tab
-  A button ............ calibrate the laser (see below)
-  Y button ............ flying on / off
-  X button ............ noclip on / off
-  Right stick click ... crouch on / off
-
-  The menu sits in front of you and follows where you look. Point at
-  a row and it highlights; pull the trigger to toggle it. Tabs along
-  the top highlight the same way - >COMBAT< is the one you are about
-  to click.
-
-  On a slider, click the LEFT half to go down and the RIGHT half to
-  go up.
-
-IF THE LASER DOES NOT LINE UP
-
-  Open the menu, point at the MIDDLE of the panel, and press A.
-  That solves the aim in one press and remembers it, including
-  after you restart the game.
-
-  If you press A while pointing somewhere else it refuses and says
-  so, rather than saving a bad aim - just point at the panel and
-  press again.
-
-
-
-  CONTROLS  -  ON THE DESKTOP
-
-
-  Run:  Blood Trail Mod Menu.exe
-
-  Same settings, on your monitor, while the headset is on. Handy for
-  the spawner and the map list. Everything you change in VR shows up
-  here and the other way round.
-
-  Optional extras:
-    Play Blood Trail (with Mod Menu).bat   starts both together
-    Auto-Open With The Game.bat            opens the app when the
-                                           game starts
-    Auto-Start With Windows.bat            starts the watcher at login
-
-
-
-  TROUBLESHOOTING
-
-Nothing happens at all
-  UE4SS is not loading. Check dwmapi.dll is in Binaries\Win64, and
-  that UE4SS-settings.ini has the 4.27 engine override from Step 1.
-  A file called UE4SS.log appears in that folder when it works.
-
-The menu never appears
-  Check Mods\mods.txt has "ModMenu : 1" and that
-  Mods\ModMenu\enabled.txt exists.
-
-The game crashes when a round starts
-  Turn SAFE MODE on (PLAYER tab). It holds off the features that
-  touch enemies, which is where round crashes come from.
-
-A combat toggle will not stay on
-  It will show [~] instead of [ ] - that means SAFE MODE is holding
-  it off. Clicking it turns SAFE MODE off and enables the feature.
-
-Sound is quiet or missing
-  That is usually not the mod. The game sends audio to whatever
-  device the Oculus app is set to. Set the Oculus/Meta app's audio
-  output to your headset. There is also a FIX AUDIO button on the
-  SETTINGS tab that restores the game's own volume levels.
-
-The desktop app shows the wrong values
-  Close any older copy of the app first - two copies fight over the
-  same file.
-
-
-
-  Made for Blood Trail on Steam.  Single player.  Use it for fun.
-
-
+====================================================================
+
+  To install it ......... double-click  INSTALL - Double-Click Me.bat
+  To use it ............. press B in the headset
+  To go back to V2 ...... double-click  VERSION SWITCHER - Double-Click Me.bat
+
+
+--------------------------------------------------------------------
+  HOW TO INSTALL
+--------------------------------------------------------------------
+
+  1. Close Blood Trail.
+  2. Double-click   INSTALL - Double-Click Me.bat
+  3. Start Blood Trail. That is it.
+
+  The installer does all of this by itself:
+    - finds Blood Trail (any drive, any Steam library)
+    - sets up UE4SS, the mod loader, if you do not have it yet
+    - keeps your settings, profiles and music list
+    - saves a copy of the version you had before
+    - puts a "Blood Trail Mod Menu" shortcut on your desktop
+
+  If it cannot find the game, a window opens - show it your Blood
+  Trail folder. (In Steam: right-click Blood Trail > Manage >
+  Browse local files.)
+
+
+--------------------------------------------------------------------
+  HOW TO USE IT
+--------------------------------------------------------------------
+
+  IN THE HEADSET
+    B button ............ open / close the menu
+    Point + trigger ..... click a tab, a switch or a slider
+    A button ............ line the laser up (point at the MIDDLE
+                          of the menu, then press A)
+    Y button ............ flying on / off
+    X button ............ noclip on / off
+    Right stick click ... crouch on / off
+
+    On a slider: click the LEFT half to go down, the RIGHT half
+    to go up.
+
+  ON THE KEYBOARD
+    Insert (or Numpad 0) ... open / close the menu
+    Up / Down .............. move
+    Left / Right ........... change a value
+    Enter .................. click
+    Page Up / Page Down .... change tab
+    Backspace .............. back
+
+  ON YOUR MONITOR
+    Double-click "Blood Trail Mod Menu" on your desktop. It is the
+    same menu on your screen - change something there and the
+    headset menu changes too, and the other way round.
+
+
+--------------------------------------------------------------------
+  WANT V2 BACK?  -  THE VERSION SWITCHER
+--------------------------------------------------------------------
+
+  Double-click   VERSION SWITCHER - Double-Click Me.bat
+
+  A window opens. It shows which version you have, and has one big
+  button for each version:
+
+     Use V3 - NEW (15 Oct 2026) ...... stay on the new one
+     Use V2 - OLD (27 Aug 2026) ...... go back to the August one
+
+  Click one, click Yes - done. (Close the game first.)
+
+  Switching never touches your settings, profiles or music list,
+  and it saves a copy of the version you had first ("Open saved
+  copies" in the window shows them). Switch back and forth as often
+  as you like.
+
+
+--------------------------------------------------------------------
+  WHAT'S NEW IN V3   (since V2 in August)
+--------------------------------------------------------------------
+
+  19 TABS NOW - V2 had 10.
+
+  SILENT AIM ........ your shots go to the enemy you point near.
+                      Pick head, neck, chest and more, how wide it
+                      looks, the hit chance, through walls or not.
+                      Hits show blood and the bullet sound, like a
+                      normal hit.
+  AIM ASSIST ........ nudges your near misses onto the target.
+  AIM BEAM .......... shows who Silent Aim has locked on to. You
+                      pick its colour, size and length.
+  ESP ............... boxes on every enemy, even through walls,
+                      plus names, health bars, distance, direction
+                      and a 4-way radar.
+  AUTO FIRE ......... every gun keeps firing while you hold the
+                      trigger - the shotgun too, at the pace you
+                      pick. The AK has its own speed slider.
+  OPTIMIZER ......... more FPS. 5 presets, Auto Resolution to hold
+                      your frame rate, AMD FSR, no fog / bloom /
+                      lens flares, corpse and blood clean-up.
+  MUSIC PLAYER ...... play your own music folder while you play,
+                      picked from the headset. It gets the same
+                      sound priority as Spotify, so it does not
+                      stutter.
+  SAVES ............. your settings save themselves and come back
+                      when the game starts. 3 profiles.
+  HEAD TOUCH ........ touch the side of your head to switch the
+                      flashlight / night vision.
+  BEAM LINE-UP ...... in the desktop app, hold a gun and press
+                      "LINE THIS GUN UP AUTOMATICALLY". Every gun
+                      remembers its own.
+  READ-OUTS ......... the menu names the gun in your hand, its fire
+                      mode, and the map you are in.
+
+
+--------------------------------------------------------------------
+  WHAT'S FIXED IN V3
+--------------------------------------------------------------------
+
+  CRASHES ........... every crash found in the crash reports since
+                      August is fixed - including the menu crashing
+                      the game when you opened it in round 2 or 3,
+                      and crashes when a round ends.
+  FREEZES ........... the game hanging so you had to force-close it
+                      - fixed.
+  END-OF-ROUND ...... the installer switches off one UE4SS setting
+  CRASH               (its "map-load hook") that showed up in every
+                      one of those crashes. Since that change, it
+                      has not come back.
+  LAG ............... the mod's own work now uses only a tiny slice
+                      of each frame. "Fewer Hitches" now cleans up
+                      memory every 2 minutes instead of every 30
+                      seconds - each clean-up was a stutter.
+  NO RECOIL ......... really works now. In V2 it never switched on.
+  ENEMY AMMO ........ Infinite Ammo and No Recoil were also being
+                      given to the ENEMIES' guns. Only yours now.
+  SHOTGUN ........... no more "SMG" (40 shells a second). It fires
+                      at the pace you pick.
+
+
+--------------------------------------------------------------------
+  IF SOMETHING IS WRONG
+--------------------------------------------------------------------
+
+  Nothing happens when I press B
+    Run INSTALL again - it also fixes the UE4SS settings. When the
+    mod loader is working, a file called UE4SS.log appears in
+    Blood Trail\BTVR\Binaries\Win64.
+
+  The laser does not line up with the menu
+    Open the menu, point at the MIDDLE of it, press A.
+
+  The installer says the game or the app is open
+    Close Blood Trail and the Blood Trail Mod Menu window (and the
+    music player), then run it again.
+
+  The game crashes in a round
+    Turn on SAFE MODE in the PLAYER tab - it holds back the
+    features that touch enemies.
+
+  V3 gives me trouble
+    Use the VERSION SWITCHER to go back to V2 - and let me know
+    what happened.
+
+  Windows says "Windows protected your PC"
+    Click "More info", then "Run anyway". The .bat files only start
+    the installer - open one in Notepad to see what it does.
+
+
+  Single player. Steam version. Have fun with it.
